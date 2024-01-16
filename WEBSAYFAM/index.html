@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Sekme stilleri */
+    .tab {
+      display: none;
+    }
+
+    /* Sekme içeriği */
+    .tab-content {
+      display: none;
+    }
+
+    /* Aktif sekme içeriği */
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Sekme bağlantıları */
+    .tab-link {
+      cursor: pointer;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      margin-right: 10px;
+    }
+
+    /* Aktif sekme bağlantısı */
+    .tab-link.active {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sekme bağlantıları -->
+  <a href="#" class="tab-link" onclick="openTab(event, 'tab1')">Sekme 1</a>
+  <a href="#" class="tab-link" onclick="openTab(event, 'tab2')">Sekme 2</a>
+  <a href="#" class="tab-link" onclick="openTab(event, 'tab3')">Sekme 3</a>
+
+  <!-- Sekme içerikleri -->
+  <div id="tab1" class="tab-content active">
+    <h2>Sekme 1 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <div id="tab2" class="tab-content">
+    <h2>Sekme 2 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <div id="tab3" class="tab-content">
+    <h2>Sekme 3 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <script>
+    // Sekme açma fonksiyonu
+    function openTab(evt, tabName) {
+      var i, tabContent, tabLinks;
+
+      // Tüm sekme içeriklerini gizle
+      tabContent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Tüm sekme bağlantılarından aktif durumu kaldır
+      tabLinks = document.getElementsByClassName("tab-link");
+      for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      // İlgili sekme içeriğini göster
+      document.getElementById(tabName).style.display = "block";
+
+      // Tıklanan sekme bağlantısına aktif durumu ekle
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
+Bu örnekte, her bir sekmenin içeriği ve bağlantıları bulunmaktadır. JavaScript kullanılarak sekmeler arasında geçiş yapma işlevselliği sağlanmıştır. Sekmelerin CSS stilleriyle görünümleri belirlenmiştir. Bu örneği kendi ihtiyaçlarınıza göre özelleştirebilirsiniz.
+
+
+
+
+User
+html ile sekme açma
+ChatGPT
+HTML ile sekme oluşturmak için genellikle CSS ve JavaScript'i kullanmanız gerekecek. İşte basit bir HTML, CSS ve JavaScript kullanarak sekme oluşturma örneği:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Sekme stilleri */
+    .tabs {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tab {
+      margin-right: 10px;
+      padding: 10px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+      background-color: #f1f1f1;
+    }
+
+    .tab.active {
+      background-color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+
+    /* Sekme içerikleri */
+    .tab-content {
+      display: none;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sekmeler -->
+  <ul class="tabs">
+    <li class="tab" onclick="openTab(event, 'tab1')">Sekme 1</li>
+    <li class="tab" onclick="openTab(event, 'tab2')">Sekme 2</li>
+    <li class="tab" onclick="openTab(event, 'tab3')">Sekme 3</li>
+  </ul>
+
+  <!-- Sekme içerikleri -->
+  <div id="tab1" class="tab-content active">
+    <h2>Sekme 1 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <div id="tab2" class="tab-content">
+    <h2>Sekme 2 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <div id="tab3" class="tab-content">
+    <h2>Sekme 3 İçeriği</h2>
+    <p>Bu sekmenin içeriği burada.</p>
+  </div>
+
+  <script>
